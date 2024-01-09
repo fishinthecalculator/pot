@@ -49,9 +49,12 @@ class Container:
         return " ".join(list_of_strings)
 
     @staticmethod
-    def _parse_list_of_strings(string: str) -> list[str]:
+    def _parse_list_of_strings(string: str | list[str]) -> list[str]:
         if string:
-            return string.split(" ")
+            if type(string) is list:
+                return string
+            else:
+                return string.split(" ")
         else:
             return []
 
